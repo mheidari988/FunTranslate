@@ -15,23 +15,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{05A3643A-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{F165F43C-5182-47A3-B503-E769C5102F9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.Api", "FunTranslate.Api\FunTranslate.Api.csproj", "{FD2C1DFA-2DE8-4A9C-84F7-D4A92FB9B739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Api", "FunTranslate.Api\FunTranslate.Api.csproj", "{FD2C1DFA-2DE8-4A9C-84F7-D4A92FB9B739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.Domain", "FunTranslate.Domain\FunTranslate.Domain.csproj", "{D14CDB6E-2B96-4CFA-8515-47DDD13C3121}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Domain", "FunTranslate.Domain\FunTranslate.Domain.csproj", "{D14CDB6E-2B96-4CFA-8515-47DDD13C3121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.Application", "FunTranslate.Application\FunTranslate.Application.csproj", "{1FE90EA8-FA85-40A6-8196-B09FB9F35FF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Application", "FunTranslate.Application\FunTranslate.Application.csproj", "{1FE90EA8-FA85-40A6-8196-B09FB9F35FF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.Infrastructure", "FunTranslate.Infrastructure\FunTranslate.Infrastructure.csproj", "{9E0E09B5-608F-41F0-80F3-1AAECB73E0B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Infrastructure", "FunTranslate.Infrastructure\FunTranslate.Infrastructure.csproj", "{9E0E09B5-608F-41F0-80F3-1AAECB73E0B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.Persistence", "FunTranslate.Persistence\FunTranslate.Persistence.csproj", "{4B0BBBA7-F4F7-478B-8004-1E3AFA42F87F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Persistence", "FunTranslate.Persistence\FunTranslate.Persistence.csproj", "{4B0BBBA7-F4F7-478B-8004-1E3AFA42F87F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.UI", "FunTranslate.UI\FunTranslate.UI.csproj", "{76268380-1117-4F72-8C1C-8DB80451411D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.UI", "FunTranslate.UI\FunTranslate.UI.csproj", "{76268380-1117-4F72-8C1C-8DB80451411D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.Application.UnitTests", "FunTranslate.Application.UnitTests\FunTranslate.Application.UnitTests.csproj", "{68EACA6B-1772-44E6-8615-C40F62F2D842}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Application.UnitTests", "FunTranslate.Application.UnitTests\FunTranslate.Application.UnitTests.csproj", "{68EACA6B-1772-44E6-8615-C40F62F2D842}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.Api.IntegrationTests", "FunTranslate.Api.IntegrationTests\FunTranslate.Api.IntegrationTests.csproj", "{52FD023F-AAB7-485F-B98A-D5DF5BBED454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Api.IntegrationTests", "FunTranslate.Api.IntegrationTests\FunTranslate.Api.IntegrationTests.csproj", "{52FD023F-AAB7-485F-B98A-D5DF5BBED454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslate.Persistence.IntegrationTests", "FunTranslate.Persistence.IntegrationTests\FunTranslate.Persistence.IntegrationTests.csproj", "{1D9DC8AA-A458-41C3-9D37-3E0D85C631DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Persistence.IntegrationTests", "FunTranslate.Persistence.IntegrationTests\FunTranslate.Persistence.IntegrationTests.csproj", "{1D9DC8AA-A458-41C3-9D37-3E0D85C631DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F2F1AEB9-2EF8-4231-875B-ACA0505D860E}"
+	ProjectSection(SolutionItems) = preProject
+		Documentations = Documentations
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentations", "Documentations", "{596F7C20-FA41-471E-91ED-5FB077C939A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +100,7 @@ Global
 		{68EACA6B-1772-44E6-8615-C40F62F2D842} = {3B44698A-04C1-403A-BAD6-55A952A9EDAD}
 		{52FD023F-AAB7-485F-B98A-D5DF5BBED454} = {3B44698A-04C1-403A-BAD6-55A952A9EDAD}
 		{1D9DC8AA-A458-41C3-9D37-3E0D85C631DD} = {3B44698A-04C1-403A-BAD6-55A952A9EDAD}
+		{596F7C20-FA41-471E-91ED-5FB077C939A3} = {F2F1AEB9-2EF8-4231-875B-ACA0505D860E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCDA8515-EF3A-4DF6-A34F-306ADE168BB8}

@@ -1,4 +1,4 @@
-# FunTranslate
+## FunTranslate
 
 This repository is an approach to use principles of Clean Architecture and CQRS by implementing a custom wrapper api to use [Fun Translations API](https://funtranslations.com/) services.
 

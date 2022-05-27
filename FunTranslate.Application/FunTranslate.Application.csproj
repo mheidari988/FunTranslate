@@ -12,8 +12,6 @@
 
 	<ItemGroup>
 		<Folder Include="Feature\Infrastructure\ExternalTranslation\Queries\" />
-		<Folder Include="Feature\Persistence\FunTranslations\Queries\GetFunTranslationBy\" />
-		<Folder Include="Feature\Persistence\FunTranslations\Queries\GetFunTranslationsList\" />
 	</ItemGroup>
 
 	<ItemGroup>

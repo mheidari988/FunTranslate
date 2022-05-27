@@ -1,7 +1,5 @@
-﻿using FunTranslate.Domain.Entities;
-
-namespace FunTranslate.Application.Contracts.Persistence;
+﻿namespace FunTranslate.Application.Contracts.Persistence;
 public interface IFunTranslationRepository : IAsyncRepository<FunTranslation>
 {
-
+    Task<FunTranslation?> GetByTextAndTranslation(string text, string translation);
 }

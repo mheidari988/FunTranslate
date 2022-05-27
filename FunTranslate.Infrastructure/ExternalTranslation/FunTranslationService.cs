@@ -1,7 +1,8 @@
-﻿using FunTranslate.Application.Contracts.Infrastructure;
+﻿using FunTranslate.Application;
+using FunTranslate.Application.Contracts.Infrastructure;
 using FunTranslate.Application.Models.ExternalTranslation;
 using Microsoft.Extensions.Logging;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace FunTranslate.Infrastructure.ExternalTranslation;
 public class FunTranslationService : IExternalTranslationService
@@ -18,14 +19,13 @@ public class FunTranslationService : IExternalTranslationService
     {
         try
         {
-            var httpClient = _httpClientFactory.CreateClient("FunTranslations");
+            var httpClient = _httpClientFactory.CreateClient(ApplicationConsts.HttpClients.FunTranslations);
             var httpResponseMessage = await httpClient.GetAsync($"{translation}.json?text={text}");
 
             if (httpResponseMessage.IsSuccessStatusCode)
             {
-                using var contentStream = await httpResponseMessage.Content.ReadAsStreamAsync();
-
-                var response = await JsonSerializer.DeserializeAsync<TranslationResponse>(contentStream);
+                var contentStream = await httpResponseMessage.Content.ReadAsStringAsync();
+                var response = JsonConvert.DeserializeObject<TranslationResponse>(contentStream);
                 return response;
             }
             else

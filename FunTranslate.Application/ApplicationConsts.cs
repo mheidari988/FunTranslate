@@ -6,4 +6,8 @@ public static class ApplicationConsts
         public const string FunTranslations = "FunTranslations";
         public const string FunTranslationsConfigKey = "FunTranslationBase";
     }
+    public static class ConnectionStrings
+    {
+        public const string FunTranslateDbConnectionString = "FunDbConnStr";
+    }
 }

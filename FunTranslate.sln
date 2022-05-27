@@ -33,13 +33,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Api.Integratio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunTranslate.Persistence.IntegrationTests", "FunTranslate.Persistence.IntegrationTests\FunTranslate.Persistence.IntegrationTests.csproj", "{1D9DC8AA-A458-41C3-9D37-3E0D85C631DD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F2F1AEB9-2EF8-4231-875B-ACA0505D860E}"
-	ProjectSection(SolutionItems) = preProject
-		Documentations = Documentations
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentations", "Documentations", "{596F7C20-FA41-471E-91ED-5FB077C939A3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,7 +93,6 @@ Global
 		{68EACA6B-1772-44E6-8615-C40F62F2D842} = {3B44698A-04C1-403A-BAD6-55A952A9EDAD}
 		{52FD023F-AAB7-485F-B98A-D5DF5BBED454} = {3B44698A-04C1-403A-BAD6-55A952A9EDAD}
 		{1D9DC8AA-A458-41C3-9D37-3E0D85C631DD} = {3B44698A-04C1-403A-BAD6-55A952A9EDAD}
-		{596F7C20-FA41-471E-91ED-5FB077C939A3} = {F2F1AEB9-2EF8-4231-875B-ACA0505D860E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCDA8515-EF3A-4DF6-A34F-306ADE168BB8}

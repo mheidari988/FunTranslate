@@ -1,4 +1,4 @@
-﻿namespace FunTranslate.Domain.Shared;
+﻿namespace FunTranslate.Domain.Entities;
 public static class FunTranslationConsts
 {
     public static class Text

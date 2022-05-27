@@ -4,8 +4,3 @@ This repository is an approach to use principles of Clean Architecture and CQRS 
 
 # FunTranslations
 Funtranslations API gives access to the full set of translations available at [funtranslations.com](https://funtranslations.com/) so that you can integrate them in your workflow or an app.
-
-
-
-
-

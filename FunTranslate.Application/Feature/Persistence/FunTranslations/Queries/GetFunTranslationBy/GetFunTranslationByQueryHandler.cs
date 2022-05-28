@@ -11,6 +11,14 @@ public class GetFunTranslationByQueryHandler : IRequestHandler<GetFunTranslation
     }
     public async Task<FunTranslationByVm?> Handle(GetFunTranslationByQuery request, CancellationToken cancellationToken)
     {
+        var validator = new GetFunTranslationByQueryValidator();
+        var validationResult = validator.Validate(request);
+
+        if (!validationResult.IsValid)
+        {
+            throw new FunValidationException(validationResult);
+        }
+
         var resultFromDb = await _repository.GetByTextAndTranslation(request.Text, request.Translation);
         return _mapper.Map<FunTranslationByVm>(resultFromDb);
     }

@@ -1,6 +1,5 @@
 ﻿using FunTranslate.Application.Contracts.Persistence;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationsList;
-using FunTranslate.Domain.Entities;
 
 namespace FunTranslate.Application.UnitTests.Persistence.FunTranslations.Queries;
 public class GetFunTranslationsListQueryHandlerTests
@@ -24,10 +23,13 @@ public class GetFunTranslationsListQueryHandlerTests
     [Fact]
     public async Task Should_Return_List_Of_FunTranslationsListVm()
     {
+        // Arrange
         var handler = new GetFunTranslationsListQueryHandler(_mockAsyncRepository.Object, _mapper);
 
+        // Act
         var result = await handler.Handle(new GetFunTranslationsListQuery(), CancellationToken.None);
 
+        // Assert
         result.ShouldBeOfType<List<FunTranslationsListVm>>();
         result.Count.ShouldBe(4);
     }

@@ -1,8 +1,7 @@
 ﻿using FunTranslate.Application.Contracts.Infrastructure;
-using FunTranslate.Application.Exceptions;
 using FunTranslate.Application.Feature.Infrastructure.ExternalTranslation.Queries;
 using FunTranslate.Application.Models.ExternalTranslation;
-using FunTranslate.Domain.Entities;
+
 
 namespace FunTranslate.Application.UnitTests.Infrastructure.ExternalTranslation.Queries;
 public class GetExternalTranslationQueryHandlerTests
@@ -27,36 +26,47 @@ public class GetExternalTranslationQueryHandlerTests
     [Fact]
     public void Should_Throw_If_Empty_Request_Passed()
     {
+        // Arrange
         var handler = new GetExternalTranslationQueryHandler(_mockExternalTranslationService.Object, _mapper);
+
+        // Act
         handler.Handle(new GetExternalTranslationQuery(), CancellationToken.None)
 
+            // Assert
             .ShouldThrow<FunValidationException>();
     }
 
     [Fact]
     public void Should_Throw_If_MaxLength_Not_Valid()
     {
+        // Arrange
         var handler = new GetExternalTranslationQueryHandler(_mockExternalTranslationService.Object, _mapper);
 
+        // Act
         handler.Handle(new GetExternalTranslationQuery
         {
             Text = MockData.LoremIpsum(FunTranslationConsts.Text.MaximumLength + 1),
             Translation = MockData.LoremIpsum(FunTranslationConsts.Translation.MaximumLength + 1)
         }, CancellationToken.None)
 
+            // Assert
             .ShouldThrow<FunValidationException>();
     }
 
     [Fact]
     public async Task Should_Return_ExternalTranslationVm_If_Valid_Data()
     {
+        // Arrange
         var handler = new GetExternalTranslationQueryHandler(_mockExternalTranslationService.Object, _mapper);
+
+        // Act
         var response = await handler.Handle(new GetExternalTranslationQuery
         {
             Text = "foo",
             Translation = "foo"
         }, CancellationToken.None);
 
+        // Assert
         response.ShouldBeOfType<ExternalTranslationVm>();
     }
 }

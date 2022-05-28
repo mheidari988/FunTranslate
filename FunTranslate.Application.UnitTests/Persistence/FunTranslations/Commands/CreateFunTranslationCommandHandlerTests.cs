@@ -1,7 +1,5 @@
 ﻿using FunTranslate.Application.Contracts.Persistence;
-using FunTranslate.Application.Exceptions;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Commands.CreateFunTranslation;
-using FunTranslate.Domain.Entities;
 
 namespace FunTranslate.Application.UnitTests.Persistence.FunTranslations.Commands;
 public class CreateFunTranslationCommandHandlerTests
@@ -29,18 +27,23 @@ public class CreateFunTranslationCommandHandlerTests
     [Fact]
     public void Should_Throw_If_Empty_Request_Passed()
     {
+        // Arrange
         var handler = new CreateFunTranslationCommandHandler(_mockAsyncRepository.Object, _mapper);
 
+        // Act
         handler.Handle(new CreateFunTranslationCommand(), CancellationToken.None)
 
+            // Assert
             .ShouldThrow<FunValidationException>();
     }
 
     [Fact]
     public void Should_Throw_If_MaxLength_Not_Valid()
     {
+        // Arrange
         var handler = new CreateFunTranslationCommandHandler(_mockAsyncRepository.Object, _mapper);
 
+        // Act
         handler.Handle(new CreateFunTranslationCommand
         {
             Text = MockData.LoremIpsum(FunTranslationConsts.Text.MaximumLength + 1),
@@ -48,23 +51,26 @@ public class CreateFunTranslationCommandHandlerTests
             Translated = MockData.LoremIpsum(FunTranslationConsts.Translated.MaximumLength + 1)
         }, CancellationToken.None)
 
+            // Assert
             .ShouldThrow<FunValidationException>();
     }
 
     [Fact]
     public async Task Should_Add_New_FunTranslation_If_Valid_Data()
     {
+        // Arrange
         var handler = new CreateFunTranslationCommandHandler(_mockAsyncRepository.Object, _mapper);
 
+        // Act
         await handler.Handle(new CreateFunTranslationCommand()
         {
             Text = "foo",
             Translation = "foo",
             Translated = "foo"
         }, CancellationToken.None);
-
         (await _mockAsyncRepository.Object.GetAllAsync())
 
+            // Assert
             .Count.ShouldBe(5);
     }
 }

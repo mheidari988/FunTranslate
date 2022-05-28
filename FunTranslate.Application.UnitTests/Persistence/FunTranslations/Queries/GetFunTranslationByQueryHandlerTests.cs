@@ -21,16 +21,14 @@ public class GetFunTranslationByQueryHandlerTests
     }
 
     [Fact]
-    public async Task Get_Translation_If_valid()
+    public void Should_Throw_If_Empty_Request_Passed()
     {
         var funTranslationList = MockData.GetFunTranslatesMockData();
         _mockFunTranslationRepository.Setup(fun => fun.GetAllAsync()).ReturnsAsync(funTranslationList);
         _mockFunTranslationRepository.Setup(fun => fun.GetByTextAndTranslation(It.IsNotNull<string>(), It.IsNotNull<string>())).ReturnsAsync(new FunTranslation());
 
         var handler = new GetFunTranslationByQueryHandler(_mockFunTranslationRepository.Object, _mapper);
-        var response = await handler.Handle(new GetFunTranslationByQuery { Text = "hello", Translation = "minion" }, CancellationToken.None);
-
-        response.ShouldNotBeNull();
+        handler.Handle(new GetFunTranslationByQuery(), CancellationToken.None).ShouldThrow<FunValidationException>();
     }
 
     [Fact]
@@ -46,13 +44,15 @@ public class GetFunTranslationByQueryHandlerTests
     }
 
     [Fact]
-    public void Should_Throw_If_Empty_Request_Passed()
+    public async Task Should_Return_FunTranslationByVm_If_valid_Data()
     {
         var funTranslationList = MockData.GetFunTranslatesMockData();
         _mockFunTranslationRepository.Setup(fun => fun.GetAllAsync()).ReturnsAsync(funTranslationList);
         _mockFunTranslationRepository.Setup(fun => fun.GetByTextAndTranslation(It.IsNotNull<string>(), It.IsNotNull<string>())).ReturnsAsync(new FunTranslation());
 
         var handler = new GetFunTranslationByQueryHandler(_mockFunTranslationRepository.Object, _mapper);
-        handler.Handle(new GetFunTranslationByQuery(), CancellationToken.None).ShouldThrow<FunValidationException>();
+        var response = await handler.Handle(new GetFunTranslationByQuery { Text = "foo", Translation = "foo" }, CancellationToken.None);
+
+        response.ShouldNotBeNull();
     }
 }

@@ -20,8 +20,9 @@ public class GetFunTranslationsListQueryHandlerTests
         _mockAsyncRepository = new Mock<IAsyncRepository<FunTranslation>>();
         _mockAsyncRepository.Setup(repo => repo.GetAllAsync()).ReturnsAsync(funTranslatesList);
     }
+
     [Fact]
-    public async Task GetFunTranslationsListTest()
+    public async Task Should_Return_List_Of_FunTranslationsListVm()
     {
         var handler = new GetFunTranslationsListQueryHandler(_mockAsyncRepository.Object, _mapper);
 

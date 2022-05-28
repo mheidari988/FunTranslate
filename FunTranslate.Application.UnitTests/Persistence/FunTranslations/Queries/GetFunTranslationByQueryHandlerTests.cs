@@ -34,7 +34,19 @@ public class GetFunTranslationByQueryHandlerTests
     }
 
     [Fact]
-    public void Get_Throw_If_Emptry()
+    public void Should_Throw_If_MaxLength_Not_Valid()
+    {
+        var handler = new GetFunTranslationByQueryHandler(_mockFunTranslationRepository.Object, _mapper);
+
+        handler.Handle(new GetFunTranslationByQuery
+        {
+            Text = MockData.LoremIpsum(FunTranslationConsts.Text.MaximumLength + 1),
+            Translation = MockData.LoremIpsum(FunTranslationConsts.Translation.MaximumLength + 1),
+        }, CancellationToken.None).ShouldThrow<FunValidationException>();
+    }
+
+    [Fact]
+    public void Should_Throw_If_Empty_Request_Passed()
     {
         var funTranslationList = MockData.GetFunTranslatesMockData();
         _mockFunTranslationRepository.Setup(fun => fun.GetAllAsync()).ReturnsAsync(funTranslationList);

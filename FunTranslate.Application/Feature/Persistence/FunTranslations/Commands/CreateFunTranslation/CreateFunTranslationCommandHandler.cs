@@ -1,6 +1,4 @@
-﻿using FunTranslate.Application.Exceptions;
-
-namespace FunTranslate.Application.Feature.Persistence.FunTranslations.Commands.CreateFunTranslation;
+﻿namespace FunTranslate.Application.Feature.Persistence.FunTranslations.Commands.CreateFunTranslation;
 public class CreateFunTranslationCommandHandler : IRequestHandler<CreateFunTranslationCommand, Guid>
 {
     private readonly IAsyncRepository<FunTranslation> _repository;
@@ -8,8 +6,8 @@ public class CreateFunTranslationCommandHandler : IRequestHandler<CreateFunTrans
 
     public CreateFunTranslationCommandHandler(IAsyncRepository<FunTranslation> repository, IMapper mapper)
     {
-        _repository = repository;
-        _mapper = mapper;
+        _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
     public async Task<Guid> Handle(CreateFunTranslationCommand request, CancellationToken cancellationToken)
     {

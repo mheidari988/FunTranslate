@@ -13,7 +13,7 @@
             url: "https://localhost:7177/api/translations",
             data: {
                 "text": $("#textToTranslate").val(),
-                "type": "yoda"
+                "type": "minion"
             },
             success: function (response) {
 

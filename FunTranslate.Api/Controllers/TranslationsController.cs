@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FunTranslate.Api.Models;
 using FunTranslate.Application.Feature.Infrastructure.ExternalTranslation.Queries;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Commands.CreateFunTranslation;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationBy;
@@ -14,26 +15,35 @@ public class TranslationsController : ControllerBase
     private readonly IMediator _mediator;
     private readonly ILogger<TranslationsController> _logger;
     private readonly IMapper _mapper;
+    private readonly IConfiguration _configuration;
 
-    public TranslationsController(IMediator mediator, ILogger<TranslationsController> logger, IMapper mapper)
+    public TranslationsController(IMediator mediator, ILogger<TranslationsController> logger, IMapper mapper, IConfiguration configuration)
     {
         _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
     }
 
-    [HttpGet]
+    [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<FunTranslationByVm>> Translate(string type, string text)
+    public async Task<ActionResult<FunTranslationByVm>> Translate([FromForm] FunTranslationDto dto)
     {
         try
         {
+            // I'm feeling lucky
+            if (string.IsNullOrEmpty(dto.Type))
+            {
+                var types = _configuration[ApplicationConsts.OtherKeys.FunTranslationTypes].Split(',').ToList();
+                dto.Type = types[new Random().Next(0, types.Count - 1)];
+            }
+
             var dbResult = await _mediator.Send(new GetFunTranslationByQuery
             {
-                Text = text,
-                Translation = type
+                Text = dto.Text,
+                Translation = dto.Type
             });
 
             if (dbResult is not null)
@@ -43,8 +53,8 @@ public class TranslationsController : ControllerBase
 
             var apiResult = await _mediator.Send(new GetExternalTranslationQuery
             {
-                Text = text,
-                Translation = type
+                Text = dto.Text,
+                Translation = dto.Type
             });
 
             if (apiResult is not null)

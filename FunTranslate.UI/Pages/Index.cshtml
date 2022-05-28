@@ -3,8 +3,45 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@section scripts{
+    <script src="~/js/Index.js"></script>
+}
+    @section Styles{
+    <link rel="stylesheet" type="text/css" href="~/css/Index.css" />
+}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+    <div class="content">
+        <section>
+            <img src="images/funtranslate.png" alt="FunTranslate" class="funTranslate">
+            <div class="translateBtns">
+                <div class="translateBar">
+                    <input type="text" id="textToTranslate">
+                    <div class="mic_space">
+                        <img src="images/google-mic.PNG" alt="Mic" class="mic_icon">
+                    </div>
+                </div>
+                <br>
+                <div class="btns_centered">
+                    <button id="btnTranslate">Minion Translate</button>
+                    <button id="btnLucky">I'm Feeling Lucky</button>
+                </div>
+            </div>
+        </section>
+        <div class="row p-5">
+            <div class="col">
+                <div class="card" id="targetContainer">
+                    <h5 class="card-header" id="targetText"></h5>
+                    <div class="card-body">
+                        <h5 class="card-title" id="targetTranslated"></h5>
+                        <p class="card-text" id="targetTranslate"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-danger" role="alert" id="errorContainer">
+                Cool down men! we are using free subscription of funtranslates.com
+                <br />
+                Come back later or translate something that we already have it in out database ;)
+            </div>
+        </div>
+    </div>

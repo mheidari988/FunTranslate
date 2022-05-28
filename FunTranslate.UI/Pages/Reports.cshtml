@@ -1,0 +1,23 @@
+﻿@page
+@model FunTranslate.UI.Pages.ReportsModel
+@{
+}
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/datatables/css/jquery.dataTables.css" />
+}
+    @section Scripts{
+    <script type="text/javascript" charset="utf-8" src="~/datatables/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/js/Reports.js"></script>
+}
+
+    <table id="reportsTable" class="display">
+        <thead>
+            <tr>
+                <th>Text</th>
+                <th>Translation</th>
+                <th>Translated</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>

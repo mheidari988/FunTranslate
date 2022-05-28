@@ -10,4 +10,8 @@ public static class ApplicationConsts
     {
         public const string FunTranslateDbConnectionString = "FunDbConnStr";
     }
+    public static class OtherKeys
+    {
+        public const string FunTranslationTypes = "FunTranslationTypes";
+    }
 }

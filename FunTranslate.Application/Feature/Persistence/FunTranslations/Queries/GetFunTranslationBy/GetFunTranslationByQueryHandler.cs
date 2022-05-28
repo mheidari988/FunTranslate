@@ -1,4 +1,6 @@
-﻿namespace FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationBy;
+﻿using FunTranslate.Application.Exceptions;
+
+namespace FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationBy;
 public class GetFunTranslationByQueryHandler : IRequestHandler<GetFunTranslationByQuery, FunTranslationByVm?>
 {
     private readonly IFunTranslationRepository _repository;

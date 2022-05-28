@@ -3,6 +3,7 @@ using FunTranslate.Application.Contracts.Infrastructure;
 using FunTranslate.Application.Models.ExternalTranslation;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace FunTranslate.Infrastructure.ExternalTranslation;
 public class FunTranslationService : IExternalTranslationService
@@ -20,17 +21,19 @@ public class FunTranslationService : IExternalTranslationService
         try
         {
             var httpClient = _httpClientFactory.CreateClient(ApplicationConsts.HttpClients.FunTranslations);
-            var httpResponseMessage = await httpClient.GetAsync($"{translation}.json?text={text}");
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, $"{translation}.json?text={text}");
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpResponse = await httpClient.SendAsync(httpRequest);
 
-            if (httpResponseMessage.IsSuccessStatusCode)
+            if (httpResponse.IsSuccessStatusCode)
             {
-                var contentStream = await httpResponseMessage.Content.ReadAsStringAsync();
+                var contentStream = await httpResponse.Content.ReadAsStringAsync();
                 var response = JsonConvert.DeserializeObject<TranslationResponse>(contentStream);
                 return response;
             }
             else
             {
-                _logger.LogWarning(httpResponseMessage.StatusCode.ToString());
+                _logger.LogWarning(httpResponse.StatusCode.ToString());
                 return null;
             }
         }

@@ -66,4 +66,7 @@
   <ItemGroup>
     <None Include="FunTranslate.Persistence.SqlServer.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
 </Project>

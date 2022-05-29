@@ -4,3 +4,4 @@ global using FunTranslate.Persistence;
 global using MediatR;
 global using AutoMapper;
 global using FunTranslate.Api.Models;
+global using Microsoft.AspNetCore.Mvc;

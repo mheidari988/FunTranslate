@@ -3,12 +3,16 @@ using FunTranslate.Application.Feature.Persistence.FunTranslations.Commands.Crea
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationBy;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationsList;
 
-using Microsoft.AspNetCore.Mvc;
 
+
+[assembly: ApiConventionType(typeof(DefaultApiConventions))]
 namespace FunTranslate.Api.Controllers;
 
 [ApiController]
+// Hardcoding route to prevent renaming and
+// refactoring bugs and stable versioning
 [Route("api/translations")]
+[Produces("application/json")]
 public class TranslationsController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -26,6 +30,7 @@ public class TranslationsController : ControllerBase
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<FunTranslationByVm>> Translate([FromForm] FunTranslationDto dto)
@@ -83,8 +88,7 @@ public class TranslationsController : ControllerBase
     }
 
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesDefaultResponseType]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<IEnumerable<FunTranslationsListVm>>> Get()
     {

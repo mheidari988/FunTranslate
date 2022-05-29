@@ -14,6 +14,8 @@ There is nothing special about the logic. When a user asks for a translation, it
 ## Libraries & Technologies
 - [ASP.NET Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0)
 - [Entity Framework Core 6](https://docs.microsoft.com/en-us/ef/core/)
+- [Dapper](https://github.com/DapperLib/Dapper)
+- [MS SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 - [MediatR](https://github.com/jbogard/MediatR)
 - [AutoMapper](https://automapper.org/)
 - [FluentValidation](https://fluentvalidation.net/)
@@ -53,6 +55,10 @@ Use the following instructions to startup and run the project.
 4. Execute `update-database` and wait for the process to complete.
 
 Note: If there is a problem with the `connection string` related to MS SQL Server, you can change it from `appsettings.json` file in `FunTranslate.Api` project.
+
+### Stored Procedure (Related to Dapper): 
+After loading the project, there is an XML file (Publish Profile) In the `FunTranslate.Persistence.SqlServer` project (`FunTranslate.Persistence.SqlServer.publish.xml`). It is for publishing any SQL-related files like`StoredProcedures,` and we can configure ConnectionString, DataBase name (In case we are using a different configuration) and publish the files.
+To publish: Right-click on the `FunTranslate.Persistence.SqlServer` project and choose `Publish` or open `FunTranslate.Persistence.SqlServer.publish.xml` by Visual Studio (Double Click on the file, and VS opens Publish DataBase Dialog) and then choose `Publish`.
 
 ### Start:
 

@@ -1,16 +1,15 @@
 ﻿using FunTranslate.Application.Feature.Infrastructure.ExternalTranslation.Queries;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Commands.CreateFunTranslation;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationBy;
+using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationsByFilter;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationsList;
-
-
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 namespace FunTranslate.Api.Controllers;
 
 [ApiController]
 // Hardcoding route to prevent renaming and
-// refactoring bugs and stable versioning
+// refactoring bugs and to have stable version
 [Route("api/translations")]
 [Produces("application/json")]
 public class TranslationsController : ControllerBase
@@ -96,6 +95,33 @@ public class TranslationsController : ControllerBase
         {
             // TODO Pagination to prevent payload
             var dbResult = await _mediator.Send(new GetFunTranslationsListQuery());
+
+            if (dbResult is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(dbResult);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, ex.Message);
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+    }
+    [HttpGet("filterby")]
+    [ProducesDefaultResponseType]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<IEnumerable<GetFunTranslationsByFilterVm>>> Filter(string? text, string? translation, string? translated)
+    {
+        try
+        {
+            var dbResult = await _mediator.Send(new GetFunTranslationsByFilterQuery
+            {
+                Text = text,
+                Translation = translation,
+                Translated = translated
+            });
 
             if (dbResult is null)
             {

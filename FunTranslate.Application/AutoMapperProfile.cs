@@ -1,6 +1,7 @@
 ﻿using FunTranslate.Application.Feature.Infrastructure.ExternalTranslation.Queries;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Commands.CreateFunTranslation;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationBy;
+using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationsByFilter;
 using FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationsList;
 using FunTranslate.Application.Models.ExternalTranslation;
 
@@ -13,6 +14,8 @@ public class AutoMapperProfile : Profile
         CreateMap<FunTranslation, CreateFunTranslationCommand>().ReverseMap();
         CreateMap<FunTranslation, FunTranslationsListVm>().ReverseMap();
         CreateMap<FunTranslation, FunTranslationByVm>().ReverseMap();
+        CreateMap<FunTranslation, GetFunTranslationsByFilterVm>().ReverseMap();
+        CreateMap<GetFunTranslationsByFilterQuery, FunTranslation>();
 
         // Related to external API
         CreateMap<TranslationResponse, ExternalTranslationVm>()

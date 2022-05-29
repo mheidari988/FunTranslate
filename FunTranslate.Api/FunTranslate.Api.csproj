@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FunTranslate.Application\FunTranslate.Application.csproj" />
     <ProjectReference Include="..\FunTranslate.Infrastructure\FunTranslate.Infrastructure.csproj" />
+    <ProjectReference Include="..\FunTranslate.Persistence.Dapper\FunTranslate.Persistence.Dapper.csproj" />
     <ProjectReference Include="..\FunTranslate.Persistence\FunTranslate.Persistence.csproj" />
   </ItemGroup>
 

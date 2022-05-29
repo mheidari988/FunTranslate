@@ -76,7 +76,7 @@ public class TranslationsController : ControllerBase
                 return Ok(_mapper.Map<FunTranslationByVm>(apiResult));
             }
 
-            // If we falled here, then better cole down.
+            // If falled down here, then service is not available.
             return StatusCode(StatusCodes.Status503ServiceUnavailable);
         }
         catch (Exception ex)

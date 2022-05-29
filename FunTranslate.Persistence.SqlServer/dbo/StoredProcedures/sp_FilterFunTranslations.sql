@@ -14,10 +14,10 @@ BEGIN
             @fText                   NVARCHAR(256), 
             @fTranslation            NVARCHAR(32), 
             @fTranslated             NVARCHAR(512)
-        SET @fId                   = @fId                      
-        SET @fText                 = LTRIM(RTRIM(@fText))
-        SET @fTranslation          = LTRIM(RTRIM(@fTranslation))
-        SET @fTranslated           = LTRIM(RTRIM(@fTranslated))
+        SET @fId                   = @Id                      
+        SET @fText                 = LTRIM(RTRIM(@Text))
+        SET @fTranslation          = LTRIM(RTRIM(@Translation))
+        SET @fTranslated           = LTRIM(RTRIM(@Translated))
 
     SELECT
         Id,              

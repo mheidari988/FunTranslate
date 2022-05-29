@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="docs\**" />
+    <Content Remove="docs\**" />
+    <EmbeddedResource Remove="docs\**" />
+    <None Remove="docs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
@@ -22,10 +29,6 @@
     <ProjectReference Include="..\FunTranslate.Infrastructure\FunTranslate.Infrastructure.csproj" />
     <ProjectReference Include="..\FunTranslate.Persistence.Dapper\FunTranslate.Persistence.Dapper.csproj" />
     <ProjectReference Include="..\FunTranslate.Persistence\FunTranslate.Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="docs\" />
   </ItemGroup>
 
 </Project>

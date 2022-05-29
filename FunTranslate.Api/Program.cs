@@ -2,7 +2,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
-
 builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddDapperServices(builder.Configuration);
 builder.Services.AddAutoMapper(System.Reflection.Assembly.GetExecutingAssembly());

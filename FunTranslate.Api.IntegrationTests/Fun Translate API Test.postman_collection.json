@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "f6264046-222c-4971-856c-13014f979a09",
+		"name": "Fun Translate API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6813806"
+	},
+	"item": [
+		{
+			"name": "POST Translate with form-data",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Text",
+							"value": "hello",
+							"type": "text"
+						},
+						{
+							"key": "Type",
+							"value": "minion",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Translate feeling lucky",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Text",
+							"value": "hello",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Translate Invalid Data",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "foo",
+							"value": "foo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Translations",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

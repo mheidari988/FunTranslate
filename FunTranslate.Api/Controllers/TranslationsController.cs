@@ -123,7 +123,7 @@ public class TranslationsController : ControllerBase
                 Translated = translated
             });
 
-            if (dbResult is null)
+            if (dbResult is null || dbResult.Count < 1)
             {
                 return NotFound();
             }

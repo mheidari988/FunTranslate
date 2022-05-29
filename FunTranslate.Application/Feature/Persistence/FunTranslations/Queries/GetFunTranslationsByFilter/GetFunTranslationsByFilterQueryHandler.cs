@@ -1,4 +1,5 @@
 ﻿using FunTranslate.Application.Contracts.Persistence.Dapper;
+using FunTranslate.Application.Models.Dapper;
 
 namespace FunTranslate.Application.Feature.Persistence.FunTranslations.Queries.GetFunTranslationsByFilter;
 public class GetFunTranslationsByFilterQueryHandler : IRequestHandler<GetFunTranslationsByFilterQuery, List<GetFunTranslationsByFilterVm>>
@@ -14,6 +15,6 @@ public class GetFunTranslationsByFilterQueryHandler : IRequestHandler<GetFunTran
     public async Task<List<GetFunTranslationsByFilterVm>> Handle(GetFunTranslationsByFilterQuery request, CancellationToken cancellationToken)
     {
         return _mapper.Map<IEnumerable<GetFunTranslationsByFilterVm>>
-            (await _dataAccess.Filter(_mapper.Map<FunTranslation>(request))).ToList();
+            (await _dataAccess.Filter(_mapper.Map<FunTranslationFilterDto>(request))).ToList();
     }
 }

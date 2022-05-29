@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\StoredProcedures\sp_FilterFunTranslations.sql" />
+    <Build Include="dbo\StoredProcedures\sp_GetAllFunTranslations.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FunTranslate.Persistence.SqlServer.publish.xml" />

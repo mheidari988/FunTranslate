@@ -1,4 +1,5 @@
 ﻿using FunTranslate.Application.Contracts.Persistence.Dapper;
+using FunTranslate.Application.Models.Dapper;
 
 namespace FunTranslate.Persistence.Dapper.DataAccess;
 public class FunTranslationDataAccess : IFunTranslationDataAccess
@@ -9,14 +10,15 @@ public class FunTranslationDataAccess : IFunTranslationDataAccess
     {
         _sqlDataAccess = sqlDataAccess ?? throw new ArgumentNullException(nameof(sqlDataAccess));
     }
-    public async Task<IEnumerable<FunTranslation>> Filter(FunTranslation filter)
+    public async Task<IEnumerable<FunTranslation>> Filter(FunTranslationFilterDto filter)
     {
-        return await _sqlDataAccess.LoadData<FunTranslation, dynamic>("dbo.sp_FilterFunTranslations", new
+        var result = await _sqlDataAccess.LoadData<FunTranslation, dynamic>("dbo.sp_FilterFunTranslations", new
         {
-            filter.Id,
-            filter.Text,
-            filter.Translation,
-            filter.Translated
+            Text = filter.Text,
+            Translation = filter.Translation,
+            Translated = filter.Translated
         });
+
+        return result;
     }
 }

@@ -138,6 +138,260 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET By Filter",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations/filterby",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations",
+						"filterby"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET By Filter - Text",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations/filterby?text=hello",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations",
+						"filterby"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "hello"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET By Filter - Translation",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations/filterby?translation=minion",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations",
+						"filterby"
+					],
+					"query": [
+						{
+							"key": "translation",
+							"value": "minion"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET By Filter - Translated",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations/filterby?translated=be",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations",
+						"filterby"
+					],
+					"query": [
+						{
+							"key": "translated",
+							"value": "be"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET By Filter - Two Filter",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations/filterby?text=where&translation=yoda",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations",
+						"filterby"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "where"
+						},
+						{
+							"key": "translation",
+							"value": "yoda"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET By Filter - Three Filter",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations/filterby?text=where&translation=yoda",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations",
+						"filterby"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "where"
+						},
+						{
+							"key": "translation",
+							"value": "yoda"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET By Filter - Not Found",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{funPort}}/api/translations/filterby?translation=yodaaaaaaaa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{funPort}}",
+					"path": [
+						"api",
+						"translations",
+						"filterby"
+					],
+					"query": [
+						{
+							"key": "translation",
+							"value": "yodaaaaaaaa"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

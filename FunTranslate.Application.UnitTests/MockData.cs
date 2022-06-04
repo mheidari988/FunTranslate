@@ -20,15 +20,5 @@ public static class MockData
         };
     }
 
-    public static string LoremIpsum(int characterCount)
-    {
-        var strBuilder = new StringBuilder();
-
-        for (int i = 0; i < characterCount; i++)
-        {
-            strBuilder.Append('X');
-        }
-
-        return strBuilder.ToString();
-    }
+    public static string LoremIpsum(int characterCount) => characterCount > 0 ? new string('X', characterCount) : "";
 }
